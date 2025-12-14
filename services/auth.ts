@@ -1,17 +1,7 @@
 import { User } from '../types';
 
-const ADMIN_EMAIL = 'oryn179@gmail.com';
-
-// Simulated Google User
-const MOCK_ADMIN_USER: User = {
-  uid: 'admin-123',
-  email: ADMIN_EMAIL,
-  displayName: 'Oryn CEO',
-  photoURL: 'https://picsum.photos/200',
-  role: 'admin'
-};
-
-const MOCK_REGULAR_USER: User = {
+// Standard User Mock
+const MOCK_USER: User = {
   uid: 'user-456',
   email: 'participant@gmail.com',
   displayName: 'CTF Player',
@@ -24,14 +14,8 @@ export const authService = {
     // Simulate API delay
     await new Promise(resolve => setTimeout(resolve, 800));
     
-    // Simple toggle for demo purposes: 
-    // If we are on the admin page route or checking admin specific flows, we might want to return admin.
-    // However, usually Google Auth returns *whoever* logs in.
-    // To make the demo testable, let's use a browser prompt to ask "Simulate Admin Login?"
-    
-    const isAdmin = window.confirm("SIMULATION: Click OK to login as Admin (oryn179@gmail.com)\nClick Cancel to login as Regular User");
-    
-    const user = isAdmin ? MOCK_ADMIN_USER : MOCK_REGULAR_USER;
+    // Always return the standard user
+    const user = MOCK_USER;
     
     localStorage.setItem('tenanet_user', JSON.stringify(user));
     return user;
@@ -47,10 +31,17 @@ export const authService = {
   },
 
   send2FACode: async (email: string): Promise<string> => {
-    if (email !== ADMIN_EMAIL) throw new Error("Unauthorized");
+    // Simulate network delay
+    await new Promise(resolve => setTimeout(resolve, 600));
+    
+    // Generate mock 6-digit code
     const code = Math.floor(100000 + Math.random() * 900000).toString();
-    console.log(`[SECURE EMAIL SERVICE] Verification Code sent to ${email}: ${code}`);
-    alert(`2FA Code sent to ${email}: ${code}`);
+    
+    // In a real application, this would send an email.
+    // For this demo, we assume the code is sent successfully.
+    // We return it here so the calling component can store it for verification comparison.
+    console.log(`[MOCK] 2FA code for ${email}: ${code}`);
+    
     return code;
   }
 };
