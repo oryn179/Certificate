@@ -4,7 +4,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import ClaimCertificate from './pages/ClaimCertificate';
-import AdminLogin from './pages/AdminLogin';
+import AdminTrap from './pages/AdminTrap';
 import { authService } from './services/auth';
 import { User } from './types';
 
@@ -34,14 +34,10 @@ function App() {
               element={user ? <ClaimCertificate /> : <Navigate to="/" />} 
             />
             
+            {/* Trap Route for Admin */}
             <Route 
-              path="/admin/login" 
-              element={<AdminLogin user={user} />} 
-            />
-            
-            <Route 
-              path="/admin/dashboard" 
-              element={<AdminDashboard user={user} />} 
+              path="/admin/*" 
+              element={<AdminTrap />} 
             />
           </Routes>
         </div>
