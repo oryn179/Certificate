@@ -18,11 +18,7 @@ const Home: React.FC<HomeProps> = ({ user, setUser }) => {
     try {
       const loggedInUser = await authService.loginWithGoogle();
       setUser(loggedInUser);
-      if (loggedInUser.role === 'admin') {
-        navigate('/admin/login');
-      } else {
-        navigate('/claim');
-      }
+      navigate('/claim');
     } catch (error) {
       console.error("Login failed", error);
       alert("Authentication failed. Please try again.");
