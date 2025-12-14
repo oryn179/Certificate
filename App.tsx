@@ -5,7 +5,6 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import ClaimCertificate from './pages/ClaimCertificate';
 import AdminLogin from './pages/AdminLogin';
-import AdminDashboard from './pages/AdminDashboard';
 import { authService } from './services/auth';
 import { User } from './types';
 
