@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TenaNet-CTF Certification</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Herr+Von+Muellerhoff&family=Orbitron:wght@400;500;700;900&family=Roboto:wght@300;400;700&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'hacker-black': '#050505',
+              'hacker-red': '#ff0033',
+              'hacker-dark-red': '#8a001a',
+              'neon-purple': '#b026ff',
+            },
+            fontFamily: {
+              orbitron: ['Orbitron', 'sans-serif'],
+              gothic: ['UnifrakturMaguntia', 'cursive'],
+              sans: ['Roboto', 'sans-serif'],
+              signature: ['"Herr Von Muellerhoff"', 'cursive'],
+            },
+            boxShadow: {
+              'neon-red': '0 0 10px #ff0033, 0 0 20px #ff0033',
+              'neon-purple': '0 0 10px #b026ff, 0 0 20px #b026ff',
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+      body {
+        background-color: #050505;
+        color: #e5e5e5;
+      }
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #111;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #ff0033;
+        border-radius: 4px;
+      }
+      
+      @media print {
+        @page {
+          size: landscape;
+          margin: 0;
+        }
+        body * {
+          visibility: hidden;
+        }
+        #certificate-container, #certificate-container * {
+          visibility: visible;
+        }
+        #certificate-container {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          margin: 0;
+          border: none;
+          box-shadow: none;
+        }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.10.1",
+    "lucide-react": "https://esm.sh/lucide-react@^0.561.0",
+    "jspdf": "https://esm.sh/jspdf@^3.0.4",
+    "html2canvas": "https://esm.sh/html2canvas@^1.4.1",
+    "bcryptjs": "https://esm.sh/bcryptjs@^3.0.3"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+{
+  "name": "TenaNet-CTF Certification",
+  "description": "A Red-Team styled digital certification platform for CTF participants with Google Auth and Admin Dashboard.",
+  "requestFramePermissions": []
+}
