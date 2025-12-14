@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { Shield, LogOut, User as UserIcon } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
+import { Shield, LogOut } from 'lucide-react';
 import { User } from '../types';
 import { authService } from '../services/auth';
 
@@ -11,7 +11,6 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ user, setUser }) => {
   const navigate = useNavigate();
-  const location = useLocation();
 
   const handleLogout = async () => {
     await authService.logout();
@@ -42,14 +41,7 @@ const Navbar: React.FC<NavbarProps> = ({ user, setUser }) => {
                   />
                   <span className="font-orbitron">{user.displayName}</span>
                 </div>
-                {user.role === 'admin' && (
-                  <Link 
-                    to="/admin/dashboard" 
-                    className={`text-sm font-orbitron hover:text-hacker-red ${location.pathname.includes('admin') ? 'text-hacker-red' : 'text-gray-300'}`}
-                  >
-                    Dashboard
-                  </Link>
-                )}
+                {/* Admin Link removed */}
                 <button
                   onClick={handleLogout}
                   className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-hacker-dark-red/50 hover:bg-hacker-red rounded border border-hacker-red transition-all"
